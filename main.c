@@ -17,6 +17,8 @@ extern int ft_isdigit(int c);
 extern int ft_isalnum(int c);
 extern int ft_isascii(int c);
 extern int ft_isprint(int c);
+extern int ft_toupper(int c);
+extern int ft_tolower(int c);
 
 int		main(void){
 
@@ -86,6 +88,19 @@ int		main(void){
 		printf("NOT OK\n");
 
 	printf("=== end ft_isprint ===\n");
+	printf("=== TEST ft_toupper ===\n");
 
+    printf("ft_toupper('a') : %c\n", ft_toupper('a'));
+    
+    printf("ft_toupper('Z') : %c\n", ft_toupper('Z'));
+    printf("ft_toupper(']') : %c\n", ft_toupper(']'));
+	printf("=== end ft_toupper ===\n");
+	printf("=== TEST ft_tolower ===\n");
+
+    printf("ft_tolower('a') : %c\n", ft_tolower('a'));
+    
+    printf("ft_tolower('Z') : %c\n", ft_tolower('Z'));
+    printf("ft_tolower(']') : %c\n", ft_tolower(']'));
+	printf("=== end ft_tolower ===\n");
 	return 0;
 }

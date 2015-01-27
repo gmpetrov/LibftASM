@@ -6,7 +6,7 @@
 #    By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/27 19:56:25 by gpetrov           #+#    #+#              #
-#    Updated: 2015/01/27 19:56:29 by gpetrov          ###   ########.fr        #
+#    Updated: 2015/01/27 19:59:44 by gpetrov          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,8 @@ NAME		=	libfts.a
 TEST		=	test
 
 SRC			=	main.c
+
+OBJ_DIR 	=	obj
 
 OBJ			=	$(addprefix obj/, $(SRC:.c=.o))
 
@@ -70,7 +72,7 @@ obj/%.o:	%.s
 
 clean:
 	/bin/rm -rf $(AOBJ)
-	/bin/rm -rf $(OBJ)
+	/bin/rm -rf $(OBJ_DIR)
 
 fclean:		clean
 	/bin/rm -rf $(NAME)

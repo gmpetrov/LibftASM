@@ -6,7 +6,7 @@
 #    By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/27 19:56:25 by gpetrov           #+#    #+#              #
-#    Updated: 2015/01/27 19:59:44 by gpetrov          ###   ########.fr        #
+#    Updated: 2015/01/27 20:19:26 by gpetrov          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,9 +31,9 @@ OBJ			=	$(addprefix obj/, $(SRC:.c=.o))
 ASRC		=	ft_isalpha.s	\
 				ft_isdigit.s	\
 				ft_isalnum.s	\
-				#ft_isascii.s	\
+				ft_isascii.s	\
 				ft_isprint.s	\
-				ft_toupper.s	\
+			#	ft_toupper.s	\
 				ft_tolower.s	\
 				ft_bzero.s		\
 				#ft_strcat.s		\

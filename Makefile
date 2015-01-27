@@ -5,89 +5,77 @@
 #                                                     +:+ +:+         +:+      #
 #    By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2015/01/27 17:09:38 by gpetrov           #+#    #+#              #
-#    Updated: 2015/01/27 18:53:02 by gpetrov          ###   ########.fr        #
+#    Created: 2015/01/27 19:56:25 by gpetrov           #+#    #+#              #
+#    Updated: 2015/01/27 19:56:29 by gpetrov          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# NAME 	= libfts.a
-# 
-# SRC_DIR = srcs
-# 
-# OBJ_DIR = srcs/.obj
-# 
-# SRC_FILES = $(shell find $(SRC_DIR) -type f -print | grep "\.s")
-# 
-# FILES 	= ft_isalpha.s
-# 
-# OBJS	= ${$(SRC_DIR)/:.s=$(SRC_DIR)/$(OBJ_DIR)/.o}
-# 
-# FLAGS	= -f macho64
-# 
-# GCC_FLAGS 	= -Wall -Wextra -Werror -O3
-# 
-# all: $(NAME)
-# 
-# $(NAME): $(OBJS)
-# 		@ar rc $(NAME) $(OBJS)
-# 		@ranlib $(NAME)
-# 		@echo "\n\n > Compiling LibftASM [\033[32mDONE\033[m]"
-# 		gcc $(GCC_FLAGS) main.c -L .
-# 
-# %.o: %.s
-# 	@nasm -f macho64 $(FILES)
-# 	@echo -n .
-# 
-# clean:
-# 	@rm -f $(OBJS)
-# 
-# fclean: clean
-# 	@rm -f $(NAME)
-# 
-# re: fclean all
-# .PHONY: all clean fclean re
+AC			=	nasm
+
+CC			=	gcc
+
+AFLAGS		=	-f macho64 -g
+
+CFLAGS		=	-Wall -Werror -Wextra
+
+NAME		=	libfts.a
+
+TEST		=	test
+
+SRC			=	main.c
+
+OBJ			=	$(addprefix obj/, $(SRC:.c=.o))
+
+ASRC		=	ft_isalpha.s	\
+				ft_isdigit.s	\
+				ft_isalnum.s	\
+				#ft_isascii.s	\
+				ft_isprint.s	\
+				ft_toupper.s	\
+				ft_tolower.s	\
+				ft_bzero.s		\
+				#ft_strcat.s		\
+				\
+				#ft_isprint.s	\
+				#ft_islower.s	\
+				#ft_isupper.s	\
+				#ft_toupper.s	\
+				#ft_tolower.s	\
+				#ft_puts.s		\
+				#ft_strlen.s		\
+				#ft_memset.s		\
+				#ft_memcpy.s		\
+				#ft_strdup.s		\
+				#ft_cat.s
+
+AOBJ		=	$(addprefix obj/, $(ASRC:.s=.o))
+
+all:		$(NAME) $(TEST)
+
+$(TEST):	$(OBJ) $(NAME)
+	$(CC) -o $(TEST) $(SRC) $(NAME)
 
 
-NAME = libfts.a
+$(NAME):	$(AOBJ)
+	ar -rc $(NAME) $(AOBJ)
+	ranlib $(NAME)
 
-C_DIR = srcs
-O_DIR = o
+obj/%.o:	%.c
+	@mkdir -p obj
+	$(CC) $(CFLAGS) -c $^ -o $@
 
-ifeq ($(shell uname),Linux)
-		FLAGS = -f elf64 -DLINUX
-	else
-		FLAGS = -f macho64 --prefix _
-	endif
-
-C_FILES = $(shell find $(C_DIR) -type f -print | grep "\.s")
-C_DIRS = $(shell find $(C_DIR) -type d -print)
-
-O_DIRS = $(C_DIRS:$(C_DIR)/%=$(O_DIR)/%)
-	O_FILES = $(C_FILES:$(C_DIR)/%.s=$(O_DIR)/%.o)
-
-all: $(NAME)
-
-$(NAME): $(O_FILES)
-	@ar -rcs $@ $^ && printf "\033[0;32m" || printf "\033[0;31m"
-	@printf "%-34s \033[1;30m<<--\033[0;0m\n" "$@"
-	gcc -Wall -Wextra -Werror -O3 main.c -L .
-
-$(O_DIR)/%.o: $(C_DIR)/%.s
-	@mkdir -p $(O_DIRS) $(O_DIR) 2> /dev/null || echo "" > /dev/null
-	@nasm $(FLAGS) -o $@ $< \
-		&& printf "\033[0;0m%-34s\033[1;30m -->>\t\033[0;32m$@\033[0;0m\n" "$<" \
-			|| (printf "\033[0;0m%-34s\033[1;30m -->>\t\033[0;31m$@\033[0;0m\n" "$<" \
-					&& exit 1)
+obj/%.o:	%.s
+	@mkdir -p obj
+	$(AC) $(AFLAGS) -o $@ $^
 
 clean:
-	@rm $(O_FILES) 2> /dev/null || echo "" > /dev/null
-	@rmdir $(O_DIRS) $(O_DIR) 2> /dev/null || echo "" > /dev/null
+	/bin/rm -rf $(AOBJ)
+	/bin/rm -rf $(OBJ)
 
-fclean: clean
-	@rm $(NAME) 2> /dev/null || echo "" > /dev/null
-	@rm $(TEST) 2> /dev/null || echo "" > /dev/null
-	rm -rf a.out
+fclean:		clean
+	/bin/rm -rf $(NAME)
+	/bin/rm -rf $(TEST)
 
-re: fclean all
+re:			fclean all
 
-.PHONY: all clean fclean re
+.PHONY:		all clean fclean re

@@ -6,7 +6,7 @@
 #    By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/27 20:11:43 by gpetrov           #+#    #+#              #
-#    Updated: 2015/01/27 20:19:01 by gpetrov          ###   ########.fr        #
+#    Updated: 2015/01/28 12:33:05 by gpetrov          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,6 @@ _ft_isprint:
 true:
 	mov rax, 1
 	ret
-false
+false:
 	mov rax, 0
 	ret

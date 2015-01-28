@@ -6,7 +6,7 @@
 #    By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/27 19:56:25 by gpetrov           #+#    #+#              #
-#    Updated: 2015/01/27 20:19:26 by gpetrov          ###   ########.fr        #
+#    Updated: 2015/01/28 12:25:00 by gpetrov          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,15 +37,15 @@ ASRC		=	ft_isalpha.s	\
             	ft_tolower.s	\
             	ft_bzero.s		\
 				ft_strcat.s		\
-				\
+				ft_strlen.s		\
 				#ft_isprint.s	\
 				#ft_islower.s	\
 				#ft_isupper.s	\
 				#ft_toupper.s	\
 				#ft_tolower.s	\
 				#ft_puts.s		\
-				#ft_strlen.s		\
 				#ft_memset.s		\
+:wa
 				#ft_memcpy.s		\
 				#ft_strdup.s		\
 				#ft_cat.s

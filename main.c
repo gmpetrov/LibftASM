@@ -6,7 +6,7 @@
 /*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 17:27:24 by gpetrov           #+#    #+#             */
-/*   Updated: 2015/01/27 20:19:42 by gpetrov          ###   ########.fr       */
+/*   Updated: 2015/01/28 14:04:30 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ extern int ft_isprint(int c);
 extern int ft_toupper(int c);
 extern int ft_tolower(int c);
 extern void ft_bzero(void *s, size_t n);
-extern char *ft_strcat(char *restrict s1, const char *restrict s2);
+extern char *ft_strcat(char *s1, const char *s2);
+extern size_t ft_strlen(const char *s);
 
 int		main(void){
 
@@ -134,9 +135,20 @@ int		main(void){
     strc[4] = 't';
     strc[5] = 0;
     printf("\nyolo\n");
+	printf("%c\n", strc[0]);
 //    ft_strcat(strc, "hello");
 //    printf("%s\n", strc);
 //
 	printf("=== end ft_strcat ===\n");
+
+   	printf("=== TEST ft_strlen ===\n");
+
+	printf("ft_strlen(\"salut\") = %zd\n", ft_strlen("salut"));
+
+	printf("=== end ft_strlen ===\n");
+
+
+
 	return 0;
+
 }

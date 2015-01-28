@@ -1,4 +1,5 @@
 global _ft_strlen
+
 segment .text
 
 _ft_strlen:

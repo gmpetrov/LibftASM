@@ -35,8 +35,8 @@ ASRC		=	ft_isalpha.s	\
 				ft_isprint.s	\
 				ft_toupper.s	\
             	ft_tolower.s	\
-            #	ft_bzero.s		\
-				#ft_strcat.s		\
+            	ft_bzero.s		\
+				ft_strcat.s		\
 				\
 				#ft_isprint.s	\
 				#ft_islower.s	\

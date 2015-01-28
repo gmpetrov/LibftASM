@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+#include <string.h>
 #include <stdio.h>
 
 extern int ft_isalpha(int c);
@@ -19,6 +21,8 @@ extern int ft_isascii(int c);
 extern int ft_isprint(int c);
 extern int ft_toupper(int c);
 extern int ft_tolower(int c);
+extern void ft_bzero(void *s, size_t n);
+extern char *ft_strcat(char *restrict s1, const char *restrict s2);
 
 int		main(void){
 
@@ -95,6 +99,7 @@ int		main(void){
     printf("ft_toupper('Z') : %c\n", ft_toupper('Z'));
     printf("ft_toupper(']') : %c\n", ft_toupper(']'));
 	printf("=== end ft_toupper ===\n");
+
 	printf("=== TEST ft_tolower ===\n");
 
     printf("ft_tolower('a') : %c\n", ft_tolower('a'));
@@ -102,5 +107,36 @@ int		main(void){
     printf("ft_tolower('Z') : %c\n", ft_tolower('Z'));
     printf("ft_tolower(']') : %c\n", ft_tolower(']'));
 	printf("=== end ft_tolower ===\n");
+
+   	printf("=== TEST ft_bzero ===\n");
+
+    char test[] = "salut";
+    int i;
+    printf("String test = salut\n");
+    for (i = 0; i < 5; i++){
+        printf("%d\n", test[i]);
+    }
+    printf("calling ft_bzero(void *, size_t)");
+    ft_bzero(test, 5);
+    for (i = 0; i < 5; i++){
+        printf("%d\n", test[i]);
+    }
+	printf("=== end ft_bzero ===\n");
+
+   	printf("=== TEST ft_strcat ===\n");
+    
+    char strc[11];
+    printf("salut");
+    strc[0] = 's';
+    strc[1] = 'a';
+    strc[2] = 'l';
+    strc[3] = 'u';
+    strc[4] = 't';
+    strc[5] = 0;
+    printf("\nyolo\n");
+//    ft_strcat(strc, "hello");
+//    printf("%s\n", strc);
+//
+	printf("=== end ft_strcat ===\n");
 	return 0;
 }

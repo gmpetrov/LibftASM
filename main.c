@@ -6,7 +6,7 @@
 /*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 17:27:24 by gpetrov           #+#    #+#             */
-/*   Updated: 2015/01/29 18:33:34 by gpetrov          ###   ########.fr       */
+/*   Updated: 2015/01/29 19:24:50 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ extern void ft_bzero(void *s, size_t n);
 extern char *ft_strcat(char *s1, const char *s2);
 extern size_t ft_strlen(const char *s);
 extern int ft_puts(const char *s);
+void	   *ft_memset(void *b, int c, size_t len);
 
 int		main(void){
 
@@ -160,7 +161,15 @@ int		main(void){
 	char *yoloo = NULL;
 	ft_puts(yoloo);
 
-//	printf("=== end ft_puts ===\n");
+	printf("=== end ft_puts ===\n");
+
+	printf("=== TEST ft_memset ===\n");
+
+	char strmem[] = "test memset";
+
+	printf("%s\n", (char *)ft_memset(strmem, 'X', 3));	
+
+	printf("=== end ft_memset ===\n");
 	return 0;
 
 }

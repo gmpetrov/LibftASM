@@ -6,7 +6,7 @@
 /*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 17:27:24 by gpetrov           #+#    #+#             */
-/*   Updated: 2015/01/29 18:25:29 by gpetrov          ###   ########.fr       */
+/*   Updated: 2015/01/29 18:33:34 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ int		main(void){
     for (i = 0; i < 5; i++){
         printf("%d\n", test[i]);
     }
-    printf("calling ft_bzero(void *, size_t)");
+    printf("calling ft_bzero(void *, size_t)\n");
     ft_bzero(test, 5);
     for (i = 0; i < 5; i++){
         printf("%d\n", test[i]);
@@ -131,6 +131,7 @@ int		main(void){
     printf("salut");
     strc[0] = 's';
     strc[1] = 'a';
+
     strc[2] = 'l';
     strc[3] = 'u';
     strc[4] = 't';

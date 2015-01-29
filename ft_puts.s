@@ -6,7 +6,7 @@
 #    By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/28 18:05:16 by gpetrov           #+#    #+#              #
-#    Updated: 2015/01/29 18:29:09 by gpetrov          ###   ########.fr        #
+#    Updated: 2015/01/29 18:52:17 by gpetrov          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ _ft_puts:
 	mov rcx, rdi
 	mov rax, 0x2000004
 	mov rdi, 1
-	mov rsi, rdi
+	mov rsi, rcx
 	syscall	
 
 carriage:
@@ -48,3 +48,4 @@ null:
 	syscall
 	mov rax, -1
 	ret	
+	

@@ -6,7 +6,7 @@
 /*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 17:27:24 by gpetrov           #+#    #+#             */
-/*   Updated: 2015/01/28 18:17:58 by gpetrov          ###   ########.fr       */
+/*   Updated: 2015/01/29 13:13:45 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,11 +151,9 @@ int		main(void){
 
    	printf("=== TEST ft_puts ===\n");
 
-	ft_puts("test\n");
+	ft_puts("test");
 
 	printf("=== end ft_puts ===\n");
-
-
 
 	return 0;
 

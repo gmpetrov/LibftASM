@@ -1,23 +1,26 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    ft_strlen.s                                        :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2015/01/29 18:17:24 by gpetrov           #+#    #+#              #
+#    Updated: 2015/01/29 18:17:26 by gpetrov          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 global _ft_strlen
 
 segment .text
 
 _ft_strlen:
-	cmp rdi, 0
-	je null
-	mov rbx, rdi
-	mov rax, 0
-
-loop:
-	cmp byte[rbx], 0
-	je end
-	inc rax
-	inc rbx
-	jmp loop
-
-end:
-	ret
-
-null:
-	mov rax, 0
+	xor rcx, rcx
+	not rcx
+	xor al, al
+	cld
+	repne scasb
+	not rcx
+	dec rcx
+	mov rax, rcx
 	ret

@@ -6,7 +6,7 @@
 /*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 17:27:24 by gpetrov           #+#    #+#             */
-/*   Updated: 2015/01/29 13:13:45 by gpetrov          ###   ########.fr       */
+/*   Updated: 2015/01/29 18:25:29 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,16 +145,21 @@ int		main(void){
 
    	printf("=== TEST ft_strlen ===\n");
 
-	printf("ft_strlen(\"salut\") = %zd\n", ft_strlen(strc));
+	printf("ft_strlen(\"salut\") = %zd\n", ft_strlen("salut"));
 
 	printf("=== end ft_strlen ===\n");
 
    	printf("=== TEST ft_puts ===\n");
 
-	ft_puts("test");
+	ft_puts("Hello World");
+	ft_puts("Hello World");
+	ft_puts("Hello World");
+	ft_puts("Hello World");
 
-	printf("=== end ft_puts ===\n");
+	char *yoloo = NULL;
+	ft_puts(yoloo);
 
+//	printf("=== end ft_puts ===\n");
 	return 0;
 
 }

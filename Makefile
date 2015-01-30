@@ -6,7 +6,7 @@
 #    By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/27 19:56:25 by gpetrov           #+#    #+#              #
-#    Updated: 2015/01/30 15:39:08 by gpetrov          ###   ########.fr        #
+#    Updated: 2015/01/30 16:30:54 by gpetrov          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,9 @@ ASRC		=	ft_isalpha.s	\
 				ft_memset.s		\
 				ft_memcpy.s		\
 				ft_strdup.s		\
-				ft_cat.s
+				ft_cat.s 		\
+				ft_strchr.s 	\
+				ft_strnew.s
 
 AOBJ		=	$(addprefix obj/, $(ASRC:.s=.o))
 

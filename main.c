@@ -6,7 +6,7 @@
 /*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 17:27:24 by gpetrov           #+#    #+#             */
-/*   Updated: 2015/01/30 15:39:33 by gpetrov          ###   ########.fr       */
+/*   Updated: 2015/01/30 16:49:55 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -183,6 +183,31 @@ int		main(void){
 	ft_cat(fd);
 
 	printf("=== end ft_cat ===\n");
+
+	printf("*** Partie BONUS ***\n");
+
+	printf("*** TEST ft_strchr ***\n");
+
+	char  test_strchr[] = "bonjour";
+
+	char  *test_strchr2 = ft_strchr(test_strchr, 'n');
+	printf("%s\n", test_strchr2);
+	test_strchr2 = ft_strchr(test_strchr, 'z');
+	printf("%s\n", test_strchr2);
+	test_strchr2 = ft_strchr(test_strchr, '\0');
+	printf("%s\n", test_strchr2);
+
+	printf("*** end ft_strchr ***\n");
+
+	printf("*** TEST ft_strnew ***\n");
+
+	char *test_strnew = ft_strnew(5);
+	int k;
+	for (k = 0; k<5; k++){
+		printf("%d\n", test_strnew[k]);
+	}
+
+	printf("*** end ft_strnew ***\n");
 
 	return 0;
 

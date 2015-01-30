@@ -6,7 +6,7 @@
 /*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/30 15:35:41 by gpetrov           #+#    #+#             */
-/*   Updated: 2015/01/30 15:39:11 by gpetrov          ###   ########.fr       */
+/*   Updated: 2015/01/30 16:37:59 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,10 @@ void	*ft_memset(void *b, int c, size_t len);
 void    *ft_memcpy(void *dst, const void *src, size_t n);
 char	*ft_strdup(const char *s1);
 void	ft_cat(int fd);
+
+/* Bonus */
+
+char	*ft_strchr(const char *s, int c);
+char	*ft_strnew(size_t size);
 
 #endif

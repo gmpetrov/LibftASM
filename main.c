@@ -6,7 +6,7 @@
 /*   By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/27 17:27:24 by gpetrov           #+#    #+#             */
-/*   Updated: 2015/01/29 19:53:23 by gpetrov          ###   ########.fr       */
+/*   Updated: 2015/01/30 13:02:46 by gpetrov          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,21 @@
 #include <string.h>
 #include <stdio.h>
 
-extern int ft_isalpha(int c);
-extern int ft_isdigit(int c);
-extern int ft_isalnum(int c);
-extern int ft_isascii(int c);
-extern int ft_isprint(int c);
-extern int ft_toupper(int c);
-extern int ft_tolower(int c);
-extern void ft_bzero(void *s, size_t n);
-extern char *ft_strcat(char *s1, const char *s2);
-extern size_t ft_strlen(const char *s);
-extern int ft_puts(const char *s);
-void	   *ft_memset(void *b, int c, size_t len);
-void       *ft_memcpy(void *dst, const void *src, size_t n);
+extern int		ft_isalpha(int c);
+extern int		ft_isdigit(int c);
+extern int		ft_isalnum(int c);
+extern int		ft_isascii(int c);
+extern int		ft_isprint(int c);
+extern int		ft_toupper(int c);
+extern int		ft_tolower(int c);
+extern void		ft_bzero(void *s, size_t n);
+extern char		*ft_strcat(char *s1, const char *s2);
+extern size_t	ft_strlen(const char *s);
+extern int		ft_puts(const char *s);
+extern void		*ft_memset(void *b, int c, size_t len);
+extern void     *ft_memcpy(void *dst, const void *src, size_t n);
+extern char		*ft_strdup(const char *s1);
+
 
 int		main(void){
 
@@ -179,6 +181,13 @@ int		main(void){
 	printf("%s\n", (char *)ft_memcpy(strmemcp, "yolo", 3));	
 
 	printf("=== end ft_memcpy ===\n");
+
+	printf("=== TEST ft_strdup ===\n");
+
+	char *testdup = ft_strdup("Salut c'est cool");
+	printf("%s\n", testdup);
+
+	printf("=== end ft_strdup ===\n");
 	return 0;
 
 }

@@ -29,7 +29,8 @@ _ft_puts:
 	mov rax, 0x2000004
 	mov rdi, 1
 	mov rsi, rcx
-	syscall	
+	syscall
+	jc abort
 
 carriage:
 	mov rax, 0x2000004
@@ -49,3 +50,5 @@ null:
 	mov rax, -1
 	ret	
 	
+abort:
+	ret

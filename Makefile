@@ -6,7 +6,7 @@
 #    By: gpetrov <gpetrov@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/27 19:56:25 by gpetrov           #+#    #+#              #
-#    Updated: 2015/01/30 11:50:23 by gpetrov          ###   ########.fr        #
+#    Updated: 2015/01/30 15:39:08 by gpetrov          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ CFLAGS		=	-Wall -Werror -Wextra
 
 NAME		=	libfts.a
 
-TEST		=	test
+TEST		=	a.out
 
 SRC			=	main.c
 
@@ -42,35 +42,39 @@ ASRC		=	ft_isalpha.s	\
 				ft_memset.s		\
 				ft_memcpy.s		\
 				ft_strdup.s		\
-				#ft_cat.s
+				ft_cat.s
 
 AOBJ		=	$(addprefix obj/, $(ASRC:.s=.o))
 
 all:		$(NAME) $(TEST)
 
 $(TEST):	$(OBJ) $(NAME)
-	$(CC) -o $(TEST) $(SRC) $(NAME)
+	@$(CC) -o $(TEST) $(SRC) $(NAME)
 
 
 $(NAME):	$(AOBJ)
-	ar -rc $(NAME) $(AOBJ)
-	ranlib $(NAME)
+	@ar -rc $(NAME) $(AOBJ)
+	@ranlib $(NAME)
+	@echo "\n> Compiling LibftASM [\033[32mDONE\033[m]"
 
 obj/%.o:	%.c
 	@mkdir -p obj
-	$(CC) $(CFLAGS) -c $^ -o $@
+	@$(CC) $(CFLAGS) -c $^ -o $@ -I .
 
 obj/%.o:	%.s
 	@mkdir -p obj
-	$(AC) $(AFLAGS) -o $@ $^
+	@$(AC) $(AFLAGS) -o $@ $^ -I .
+	@echo -n .
 
 clean:
-	/bin/rm -rf $(AOBJ)
-	/bin/rm -rf $(OBJ_DIR)
+	@/bin/rm -rf $(AOBJ)
+	@/bin/rm -rf $(OBJ_DIR)
+	@echo "clean : [\033[32mDONE\033[m]"
 
 fclean:		clean
-	/bin/rm -rf $(NAME)
-	/bin/rm -rf $(TEST)
+	@/bin/rm -rf $(NAME)
+	@/bin/rm -rf $(TEST)
+	@echo "fclean : [\033[32mDONE\033[m]"
 
 re:			fclean all
 

@@ -15,10 +15,12 @@ _ft_strdup:
 	mov rdi, rax
 	inc rdi
 	call _malloc
+	jc end
 	pop rcx
 	pop rsi
 	mov rdi, rax
 	cld
 	rep movsb
+
+end:
 	ret
-	
